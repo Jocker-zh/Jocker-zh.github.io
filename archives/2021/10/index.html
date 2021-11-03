@@ -109,7 +109,7 @@
   <aside class="sidebar">
 
     <div class="sidebar-inner sidebar-overview-active">
-      
+
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -120,7 +120,6 @@
       </ul>
 
       <div class="sidebar-panel-container">
-
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
         </div>
@@ -132,6 +131,7 @@
       src="/images/avatar.png">
   <p class="site-author-name" itemprop="name">zhaochang</p>
   <div class="site-description" itemprop="description">Fake it till you make it</div>
+
 </div>
 <div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
@@ -150,14 +150,6 @@
       <span class="links-of-author-item">
         <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
       </span>
-  </div>
-
-
-
-        </div>
-
-
-
       <!-- require APlayer -->
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
       <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
@@ -179,6 +171,13 @@
         preload="auto"
         mutex="true">
       </meting-js>
+  </div>
+
+
+
+        </div>
+
+
     </div>
   </aside>
   <div class="sidebar-dimmer"></div>
@@ -260,6 +259,29 @@
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
   </div>
+
+<!-- <i class="fa fa-fire" aria-hidden="true"></i> -->
+    <span style="padding-left: 20px;">
+      <i class="fa fa-clock-o" aria-hidden="true"></i>
+      <span id="time" align="center">载入时间中...</span>
+      <script>
+        var now = new Date(); 
+        function createtime() { 
+          var grt= new Date("2021-11-03 00:00:01");//在此处修改你的建站时间
+          now.setTime(now.getTime()+250); 
+          days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+          hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+          if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+          mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+          seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+          snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+          document.getElementById("time").innerHTML = "小站已在各种灾难中苟活 "+ dnum +" 天 "+hnum + " 小时 " + mnum + " 分 " + snum + " 秒";      
+       } 
+       setInterval("createtime()",250);
+      </script>
+      <!--不蒜子网页计数器-->
+      <span style="padding-left: 20px;"><i class="fa fa-eye" aria-hidden="true"></i>访问量: <span id="busuanzi_value_site_pv"></span>次</span>
+    </span>
 
     </div>
   </footer>
