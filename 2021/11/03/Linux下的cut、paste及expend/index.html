@@ -20,6 +20,7 @@
 
 
 
+
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
@@ -35,7 +36,7 @@ daovoice('update');
 
 
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 <meta name="description" content="本文介绍了Linux系统下cut、paste及expend命令的功能及使用">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux下的cut、paste及expend">
@@ -67,7 +68,11 @@ daovoice('update');
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
-<link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
@@ -95,6 +100,7 @@ daovoice('update');
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -107,11 +113,37 @@ daovoice('update');
         <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
         <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
         <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
   </ul>
 </nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
 
 </div>
         
@@ -138,7 +170,7 @@ daovoice('update');
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux%E4%B8%8B%E7%9A%84cut%E3%80%81paste%E5%8F%8Aexpend"><span class="nav-number">1.</span> <span class="nav-text">Linux下的cut、paste及expend</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#cut%E5%91%BD%E4%BB%A4%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">1.1.</span> <span class="nav-text">cut命令的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#paste%E5%91%BD%E4%BB%A4%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">1.2.</span> <span class="nav-text">paste命令的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#expend%E5%91%BD%E4%BB%A4%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">1.3.</span> <span class="nav-text">expend命令的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux%E4%B8%AD%E5%B0%86%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C%E6%94%BE%E5%88%B0%E6%96%87%E4%BB%B6%E4%B8%AD"><span class="nav-number">1.4.</span> <span class="nav-text">Linux中将命令行运行结果放到文件中</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Problem-1"><span class="nav-number">1.5.</span> <span class="nav-text">Problem 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Problem-2"><span class="nav-number">1.6.</span> <span class="nav-text">Problem 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Problem-3"><span class="nav-number">1.7.</span> <span class="nav-text">Problem 3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Problem-4"><span class="nav-number">1.8.</span> <span class="nav-text">Problem 4</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Probelm-5"><span class="nav-number">1.9.</span> <span class="nav-text">Probelm 5</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#linux%E4%B8%8B%E7%9A%84cutpaste%E5%8F%8Aexpend"><span class="nav-number">1.</span> <span class="nav-text">Linux下的cut、paste及expend</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#cut%E5%91%BD%E4%BB%A4%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">1.1.</span> <span class="nav-text">cut命令的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#paste%E5%91%BD%E4%BB%A4%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">1.2.</span> <span class="nav-text">paste命令的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#expend%E5%91%BD%E4%BB%A4%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">1.3.</span> <span class="nav-text">expend命令的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#linux%E4%B8%AD%E5%B0%86%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C%E6%94%BE%E5%88%B0%E6%96%87%E4%BB%B6%E4%B8%AD"><span class="nav-number">1.4.</span> <span class="nav-text">Linux中将命令行运行结果放到文件中</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#problem-1"><span class="nav-number">1.5.</span> <span class="nav-text">Problem 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#problem-2"><span class="nav-number">1.6.</span> <span class="nav-text">Problem 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#problem-3"><span class="nav-number">1.7.</span> <span class="nav-text">Problem 3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#problem-4"><span class="nav-number">1.8.</span> <span class="nav-text">Problem 4</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#probelm-5"><span class="nav-number">1.9.</span> <span class="nav-text">Probelm 5</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -306,143 +338,151 @@ daovoice('update');
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="Linux下的cut、paste及expend"><a href="#Linux下的cut、paste及expend" class="headerlink" title="Linux下的cut、paste及expend"></a>Linux下的cut、paste及expend</h1><h2 id="cut命令的使用"><a href="#cut命令的使用" class="headerlink" title="cut命令的使用"></a>cut命令的使用</h2><p><strong>cut基本格式</strong></p>
+        <h1 id="linux下的cutpaste及expend">Linux下的cut、paste及expend</h1>
+<h2 id="cut命令的使用">cut命令的使用</h2>
+<p><strong>cut基本格式</strong></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cut [OPTIONS] [FILES]</span><br></pre></td></tr></table></figure>
-
 <p><strong>常用参数选项</strong></p>
 <table>
 <thead>
-<tr>
-<th align="center">参数</th>
+<tr class="header">
+<th style="text-align: center;">参数</th>
 <th>描述</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">-c</td>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">-c</td>
 <td>以字符为单位进行分割</td>
 </tr>
-<tr>
-<td align="center">-d</td>
+<tr class="even">
+<td style="text-align: center;">-d</td>
 <td>自定义分割符，默认是制表符</td>
 </tr>
-<tr>
-<td align="center">-f</td>
+<tr class="odd">
+<td style="text-align: center;">-f</td>
 <td>以区域为单位进行分割，常与 -d 选项一起使用</td>
 </tr>
-<tr>
-<td align="center">-n</td>
+<tr class="even">
+<td style="text-align: center;">-n</td>
 <td>取消分割多字节字符，仅与 -b 选项同用</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p>从对 cut 命令的选项描述来看，该命令一般通过三种单位进行分割：字节、字符、域 。</p>
-<h2 id="paste命令的使用"><a href="#paste命令的使用" class="headerlink" title="paste命令的使用"></a>paste命令的使用</h2><p><strong>paste基本格式</strong></p>
+<h2 id="paste命令的使用">paste命令的使用</h2>
+<p><strong>paste基本格式</strong></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">paste [OPTIONS] [FILES]</span><br></pre></td></tr></table></figure>
-
 <p><strong>常用参数选项</strong></p>
 <table>
 <thead>
-<tr>
-<th align="center">参数</th>
-<th align="left">描述</th>
+<tr class="header">
+<th style="text-align: center;">参数</th>
+<th style="text-align: left;">描述</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">-s</td>
-<td align="left">将每个文件合并成行，而不是按行粘贴（即每个文件中的内容占一行，而不是每个文件取行合并成新行）</td>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">-s</td>
+<td style="text-align: left;">将每个文件合并成行，而不是按行粘贴（即每个文件中的内容占一行，而不是每个文件取行合并成新行）</td>
 </tr>
-<tr>
-<td align="center">-d</td>
-<td align="left">自定义分隔符，默认为制表符（Tab）</td>
+<tr class="even">
+<td style="text-align: center;">-d</td>
+<td style="text-align: left;">自定义分隔符，默认为制表符（Tab）</td>
 </tr>
-<tr>
-<td align="center">-z</td>
-<td align="left">按行粘贴，类似于 cat 多个文件</td>
+<tr class="odd">
+<td style="text-align: center;">-z</td>
+<td style="text-align: left;">按行粘贴，类似于 cat 多个文件</td>
 </tr>
-</tbody></table>
-<h2 id="expend命令的使用"><a href="#expend命令的使用" class="headerlink" title="expend命令的使用"></a>expend命令的使用</h2><p><strong>expend基本格式</strong></p>
+</tbody>
+</table>
+<h2 id="expend命令的使用">expend命令的使用</h2>
+<p><strong>expend基本格式</strong></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">expand [OPTIONS] [FILES]</span><br></pre></td></tr></table></figure>
-
 <p><strong>常用参数选项</strong></p>
 <table>
 <thead>
-<tr>
-<th align="center">参数</th>
+<tr class="header">
+<th style="text-align: center;">参数</th>
 <th>描述</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">-i, –initial</td>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">-i, --initial</td>
 <td>不转换非空白符后的制表符</td>
 </tr>
-<tr>
-<td align="center">-t, –tabs=NUMBER</td>
+<tr class="even">
+<td style="text-align: center;">-t, --tabs=NUMBER</td>
 <td>指定一个tab替换为多少个空格，而不是默认的 8</td>
 </tr>
-<tr>
-<td align="center">-t, –tabs=LIST</td>
+<tr class="odd">
+<td style="text-align: center;">-t, --tabs=LIST</td>
 <td>指定制表符位置列表，用逗号分隔</td>
 </tr>
-<tr>
-<td align="center">–help</td>
+<tr class="even">
+<td style="text-align: center;">--help</td>
 <td>显示帮助信息</td>
 </tr>
-<tr>
-<td align="center">–version</td>
+<tr class="odd">
+<td style="text-align: center;">--version</td>
 <td>输出版本信息</td>
 </tr>
-</tbody></table>
-<h2 id="Linux中将命令行运行结果放到文件中"><a href="#Linux中将命令行运行结果放到文件中" class="headerlink" title="Linux中将命令行运行结果放到文件中"></a>Linux中将命令行运行结果放到文件中</h2><p><strong>仅转向不显示</strong></p>
+</tbody>
+</table>
+<h2 id="linux中将命令行运行结果放到文件中">Linux中将命令行运行结果放到文件中</h2>
+<p><strong>仅转向不显示</strong></p>
 <table>
 <thead>
-<tr>
-<th align="center">命令</th>
+<tr class="header">
+<th style="text-align: center;">命令</th>
 <th>解释</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">ls &gt; test.txt</td>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">ls &gt; test.txt</td>
 <td>把输出转向到指定的文件，如文件已存在的话也会重新写入，文件原内容不会保留</td>
 </tr>
-<tr>
-<td align="center">ls &gt;&gt; test.txt</td>
+<tr class="even">
+<td style="text-align: center;">ls &gt;&gt; test.txt</td>
 <td>是把输出附向到文件的后面，文件原内容会保留下来</td>
 </tr>
-</tbody></table>
-<h2 id="Problem-1"><a href="#Problem-1" class="headerlink" title="Problem 1"></a>Problem 1</h2><p><strong>Question</strong></p>
-<p>Try to run “cat /etc/passwd” in your shell, and read the result, each line of which is composed of some words separated by ‘:’.<br>Then please read the manuals of UNIX utilities “cut” and “paste” (e.g., man cut; info paste), and understand how to use them.<br>Our target is to cut the 1st word (i.e., field 1 - the user names) and the 6th word (i.e., field 6 - HOME directories) in each line from file /etc/passwd, and store them in 2 separated new files.<br>Then we paste the 2 files together into a new file with only 2 word columns, and these 2 columns are separated by one tab character in each line.<br>The expected result looks like, <strong>Answer</strong></p>
-<p>运行<code>cat /etc/passwd </code>可以看到，文件是按域进行分隔的，间隔符为<code>:</code></p>
+</tbody>
+</table>
+<h2 id="problem-1">Problem 1</h2>
+<p><strong>Question</strong></p>
+<p>Try to run "cat /etc/passwd" in your shell, and read the result, each line of which is composed of some words separated by ':'. Then please read the manuals of UNIX utilities "cut" and "paste" (e.g., man cut; info paste), and understand how to use them. Our target is to cut the 1st word (i.e., field 1 - the user names) and the 6th word (i.e., field 6 - HOME directories) in each line from file /etc/passwd, and store them in 2 separated new files. Then we paste the 2 files together into a new file with only 2 word columns, and these 2 columns are separated by one tab character in each line. The expected result looks like, <strong>Answer</strong></p>
+<p>运行<code>cat /etc/passwd</code>可以看到，文件是按域进行分隔的，间隔符为<code>:</code></p>
 <p>现在我们提取每一行的第一个域（这里以前5行为例），命令如下：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> cat /etc/passwd | head -n 5 | cut -d : -f 1 &gt; p1_1.txt</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> cat p1_1.txt</span></span><br><span class="line">root</span><br><span class="line">daemon</span><br><span class="line">bin</span><br><span class="line">sys</span><br><span class="line">sync</span><br></pre></td></tr></table></figure>
-
 <p>同理取出第六个域（这里以前12行为例），命令如下：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> cat /etc/passwd | head -n 5 | cut -d : -f 6 &gt; p1_2.txt</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> cat p1_2.txt</span></span><br><span class="line">/root</span><br><span class="line">/usr/sbin</span><br><span class="line">/bin</span><br><span class="line">/dev</span><br><span class="line">/bin</span><br></pre></td></tr></table></figure>
-
 <p>通过paste命令来组合两个文本合成为p1.txt，命令如下:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> paste p1_1.txt p1_2.txt &gt; p1.txt</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> cat p1.txt</span></span><br><span class="line">root	/root</span><br><span class="line">daemon	/usr/sbin</span><br><span class="line">bin	/bin</span><br><span class="line">sys	/dev</span><br><span class="line">sync	/bin</span><br></pre></td></tr></table></figure>
-
 <blockquote>
 <p>注：在终端显示是以Tab键为间隔，在Markdown里不知道为什么会这样</p>
 </blockquote>
-<h2 id="Problem-2"><a href="#Problem-2" class="headerlink" title="Problem 2"></a>Problem 2</h2><p><strong>Question</strong></p>
-<p>Please read the manual of UNIX utility “expand”, and change the tab character in the result of Problem 2 into many space characters, while the word alignment keeps and the 2nd word always begins on the 20th column.<br>The expected result looks like,</p>
+<h2 id="problem-2">Problem 2</h2>
+<p><strong>Question</strong></p>
+<p>Please read the manual of UNIX utility "expand", and change the tab character in the result of Problem 2 into many space characters, while the word alignment keeps and the 2nd word always begins on the 20th column. The expected result looks like,</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">root               /root</span><br><span class="line">daemon             /usr/sbin</span><br><span class="line">bin                /bin</span><br><span class="line">sys                /dev</span><br><span class="line">sync               /bin</span><br><span class="line">games              /usr/games</span><br><span class="line">man                /var/cache/man</span><br><span class="line">lp                 /var/spool/lpd</span><br><span class="line">mail               /var/mail</span><br><span class="line">news               /var/spool/news</span><br><span class="line">landscape          /var/lib/landscape</span><br><span class="line">postgres           /var/lib/postgresql</span><br><span class="line">uucp               /var/spool/uucp</span><br></pre></td></tr></table></figure>
-
 <p><strong>Answer</strong></p>
 <p>使用expend命令来实现所需功能，命令如下：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> cat p1.txt &gt; p2.txt</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> cat p2.txt</span></span><br><span class="line">root	/root</span><br><span class="line">daemon	/usr/sbin</span><br><span class="line">bin	/bin</span><br><span class="line">sys	/dev</span><br><span class="line">sync	/bin</span><br><span class="line"><span class="meta">$</span><span class="bash"> expand -t 19 p2.txt &gt; p2_final.txt</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> cat p2_final.txt</span></span><br><span class="line">root               /root</span><br><span class="line">daemon             /usr/sbin</span><br><span class="line">bin                /bin</span><br><span class="line">sys                /dev</span><br><span class="line">sync               /bin</span><br></pre></td></tr></table></figure>
-
-<h2 id="Problem-3"><a href="#Problem-3" class="headerlink" title="Problem 3"></a>Problem 3</h2><p><strong>Question</strong></p>
+<h2 id="problem-3">Problem 3</h2>
+<p><strong>Question</strong></p>
 <p>Everything similar as in Problem 2, but try to show the results in a manner like below.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">root:</span><br><span class="line">/root</span><br><span class="line">daemon:</span><br><span class="line">/usr/sbin</span><br><span class="line">bin:</span><br><span class="line">/bin</span><br><span class="line">sys:</span><br><span class="line">/dev</span><br><span class="line">sync:</span><br><span class="line">/bin</span><br><span class="line">games:</span><br><span class="line">/usr/games</span><br><span class="line">man:</span><br><span class="line">/var/cache/man</span><br><span class="line">lp:</span><br><span class="line">/var/spool/lpd</span><br><span class="line">mail:</span><br><span class="line">/var/mail</span><br><span class="line">news:</span><br><span class="line">/var/spool/news</span><br><span class="line">landscape:</span><br><span class="line">/var/lib/landscape</span><br><span class="line">postgres:</span><br><span class="line">/var/lib/postgresql</span><br><span class="line">uucp:</span><br><span class="line">/var/spool/uucp</span><br></pre></td></tr></table></figure>
-
 <p><strong>Answer</strong></p>
 <p>为了实现所需的效果，命令如下：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> paste -d <span class="string">&#x27;:&#x27;</span> p1_1.txt p1_2.txt &gt; p3_1.txt</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> cat p3_1.txt</span></span><br><span class="line">root:/root</span><br><span class="line">daemon:/usr/sbin</span><br><span class="line">bin:/bin</span><br><span class="line">sys:/dev</span><br><span class="line">sync:/bin</span><br><span class="line"><span class="meta">$</span><span class="bash"> cut p3_1.txt -d / -f 1 &gt; p3_2.txt</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> cat p3_2.txt</span></span><br><span class="line">root:</span><br><span class="line">daemon:</span><br><span class="line">bin:</span><br><span class="line">sys:</span><br><span class="line">sync:</span><br><span class="line"><span class="meta">$</span><span class="bash"> paste -d <span class="string">&#x27;\n&#x27;</span> p3_2.txt p1_2.txt &gt; p3.txt</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> cat p3.txt</span></span><br><span class="line">root:</span><br><span class="line">/root</span><br><span class="line">daemon:</span><br><span class="line">/usr/sbin</span><br><span class="line">bin:</span><br><span class="line">/bin</span><br><span class="line">sys:</span><br><span class="line">/dev</span><br><span class="line">sync:</span><br><span class="line">/bin</span><br></pre></td></tr></table></figure>
-
-<h2 id="Problem-4"><a href="#Problem-4" class="headerlink" title="Problem 4"></a>Problem 4</h2><p><strong>Find what Ubuntu is from <a target="_blank" rel="noopener" href="http://www.wikipedia.org/">www.wikipedia.org</a>; briefly explain why this name is chosen.</strong></p>
-<p>Ubuntu is named after the Nguni philosophy of ubuntu, which Canonical indicates means “humanity to others” with a connotation of “I am what I am because of who we all are”.</p>
-<h2 id="Probelm-5"><a href="#Probelm-5" class="headerlink" title="Probelm 5"></a>Probelm 5</h2><p><strong>Watch the video Revolution OS, and briefly answer,</strong> </p>
-<p><strong>1. What application greatly motivated companies to use Linux instead of Windows?</strong> </p>
+<h2 id="problem-4">Problem 4</h2>
+<p><strong>Find what Ubuntu is from www.wikipedia.org; briefly explain why this name is chosen.</strong></p>
+<p>Ubuntu is named after the Nguni philosophy of ubuntu, which Canonical indicates means "humanity to others" with a connotation of "I am what I am because of who we all are".</p>
+<h2 id="probelm-5">Probelm 5</h2>
+<p><strong>Watch the video Revolution OS, and briefly answer,</strong></p>
+<p><strong>1. What application greatly motivated companies to use Linux instead of Windows?</strong></p>
 <p><strong>Answer:</strong> Apache.</p>
 <p><strong>2. (Optional) What Richard Stallman means in his Han Solo analogy when FSF is given the Linus Torvalds Award?</strong></p>
 <p><strong>Answer:</strong> Because the operating system is the combination of the GNU and Linux.</p>
@@ -488,7 +528,7 @@ daovoice('update');
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -539,7 +579,11 @@ daovoice('update');
 <script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
 
   
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
 
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdn.jsdelivr.net/npm/pdfobject@2.2.6/pdfobject.min.js","integrity":"sha256-77geM50MfxCD17eqyJR+Dag1svjJOLN+BJ2F/DMqMEY="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
 
 
 
@@ -548,6 +592,12 @@ daovoice('update');
   <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
 
 
 
