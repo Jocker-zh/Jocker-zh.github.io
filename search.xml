@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>考研数学————微积分笔记</title>
+      <link href="/2022/02/24/%E5%BE%AE%E7%A7%AF%E5%88%86%E7%AC%94%E8%AE%B0/"/>
+      <url>/2022/02/24/%E5%BE%AE%E7%A7%AF%E5%88%86%E7%AC%94%E8%AE%B0/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="微积分">微积分</h1><h2 id="chapter1-数列的极限">Chapter1 数列的极限</h2><h3 id="数列">1.1数列</h3><h4 id="数列及其极限的概念">1.1.1 数列及其极限的概念</h4><p><strong>数列</strong> 定义域是正整数集合<span class="math inline">\(\mathbb{Z}_{+}\)</span>的一个函数 <span class="math inline">\(f:\mathbb{Z}_{+}\rightarrow\mathbb{R}\)</span> 成为一个数列，记为 <span class="math inline">\(a_1,a_2,...,an,...\)</span> 或者<span class="math inline">\(\{a_n\}\)</span>，其中 <span class="math inline">\(\{a_n=f(n)\}\)</span> 称为<strong>通项</strong>，如果 <span class="math inline">\(f\)</span> 是有界函数，则称 <span class="math inline">\(\{a_n\}\)</span> 是<strong>有界数列</strong>；否则称 <span class="math inline">\(\{a_n\}\)</span> 为<strong>无界数列</strong></p><p><strong>数列的极限定义、收敛与发散</strong> 设<span class="math inline">\(\{a_n\}\)</span>是<span class="math inline">\(\mathbb{R}\)</span>中的一个数列，如果存在<span class="math inline">\(a\in\mathbb{R}\)</span>，使得 <span class="math inline">\(\forall\varepsilon&gt;0,\exists N\in\mathbb{Z}_{+}\)</span> ,当 <span class="math inline">\(n\geq N\)</span> 时，都有 <span class="math display">\[|a_n-a|&lt;\varepsilon\]</span> 则称数列 <span class="math inline">\(\{a_n\}\)</span> 是<strong>收敛</strong>的且收敛于 <span class="math inline">\(a\)</span>（或<strong>趋向于 <span class="math inline">\(a\)</span></strong>），记为 <span class="math display">\[\lim \limits_{n \to \infty}a_n=a \quad \text{或者} \quad \text{当 } n \to\infty\text{ 时}，a_n\to a\]</span> 这时，称<span class="math inline">\(a\)</span>是数列 <span class="math inline">\(\{a_n\}\)</span> 的<strong>极限</strong>。如果上述条件不成立，则称 <span class="math inline">\(\{a_n\}\)</span> 是<strong>发散</strong>的或者<strong>不收敛</strong></p><blockquote><ol type="1"><li><p>此定义中 <span class="math inline">\(\varepsilon\)</span> 是任意给定的，即 <span class="math inline">\(|a_n-a|&lt;\varepsilon \Leftrightarrow |a_n-a|&lt;c\varepsilon\)</span></p></li><li><p>常数列 <span class="math inline">\(\{a_n\},a_n=c(c\in \mathbb{R})\)</span> 的极限为 <span class="math inline">\(c\)</span> ，即 <span class="math inline">\(\lim\limits_{n\to \infty}c=c\)</span></p></li><li><p>任意改变数列的有限项并不会改变其敛散性和极，一个数列是否收敛或极限是多少与前面有限多项没有关系</p></li></ol></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> Notes </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> learning </tag>
+            
+            <tag> Notes - Postgraduate entrance examination </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>TEST</title>
       <link href="/2022/02/06/markdown/"/>
       <url>/2022/02/06/markdown/</url>
@@ -48,33 +75,6 @@
             <tag> learning </tag>
             
             <tag> Linux </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>考研数学————微积分笔记</title>
-      <link href="/2021/11/03/%E5%BE%AE%E7%A7%AF%E5%88%86%E7%AC%94%E8%AE%B0/"/>
-      <url>/2021/11/03/%E5%BE%AE%E7%A7%AF%E5%88%86%E7%AC%94%E8%AE%B0/</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="微积分">微积分</h1><h2 id="chapter1-数列的极限">Chapter1 数列的极限</h2><h3 id="数列">1.1数列</h3><h4 id="数列及其极限的概念">1.1.1 数列及其极限的概念</h4><p><strong>数列</strong> 定义域是正整数集合<span class="math inline">\(\mathbb{Z}_{+}\)</span>的一个函数 <span class="math inline">\(f:\mathbb{Z}_{+}\rightarrow\mathbb{R}\)</span> 成为一个数列，记为 <span class="math inline">\(a_1,a_2,...,an,...\)</span> 或者<span class="math inline">\(\{a_n\}\)</span>，其中 <span class="math inline">\(\{a_n=f(n)\}\)</span> 称为<strong>通项</strong>，如果 <span class="math inline">\(f\)</span> 是有界函数，则称 <span class="math inline">\(\{a_n\}\)</span> 是<strong>有界数列</strong>；否则称 <span class="math inline">\(\{a_n\}\)</span> 为<strong>无界数列</strong></p><p><strong>数列的极限定义、收敛与发散</strong> 设<span class="math inline">\(\{a_n\}\)</span>是<span class="math inline">\(\mathbb{R}\)</span>中的一个数列，如果存在<span class="math inline">\(a\in\mathbb{R}\)</span>，使得 <span class="math inline">\(\forall\varepsilon&gt;0,\exists N\in\mathbb{Z}_{+}\)</span> ,当 <span class="math inline">\(n\geq N\)</span> 时，都有 <span class="math display">\[|a_n-a|&lt;\varepsilon\]</span> 则称数列 <span class="math inline">\(\{a_n\}\)</span> 是<strong>收敛</strong>的且收敛于 <span class="math inline">\(a\)</span>（或<strong>趋向于 <span class="math inline">\(a\)</span></strong>），记为 <span class="math display">\[\lim \limits_{n \to \infty}a_n=a \quad \text{或者} \quad \text{当 } n \to\infty\text{ 时}，a_n\to a\]</span> 这时，称<span class="math inline">\(a\)</span>是数列 <span class="math inline">\(\{a_n\}\)</span> 的<strong>极限</strong>。如果上述条件不成立，则称 <span class="math inline">\(\{a_n\}\)</span> 是<strong>发散</strong>的或者<strong>不收敛</strong></p><blockquote><ol type="1"><li><p>此定义中 <span class="math inline">\(\varepsilon\)</span> 是任意给定的，即 <span class="math inline">\(|a_n-a|&lt;\varepsilon \Leftrightarrow |a_n-a|&lt;c\varepsilon\)</span></p></li><li><p>常数列 <span class="math inline">\(\{a_n\},a_n=c(c\in \mathbb{R})\)</span> 的极限为 <span class="math inline">\(c\)</span> ，即 <span class="math inline">\(\lim\limits_{n\to \infty}c=c\)</span></p></li><li><p>任意改变数列的有限项并不会改变其敛散性和极，一个数列是否收敛或极限是多少与前面有限多项没有关系</p></li></ol></blockquote>]]></content>
-      
-      
-      <categories>
-          
-          <category> Notes </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> learning </tag>
-            
-            <tag> Notes - Postgraduate entrance examination </tag>
             
         </tags>
       
